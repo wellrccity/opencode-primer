@@ -1,0 +1,52 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "local-openai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Local OpenAI-compatible server",
+      "options": {
+        "baseURL": "{env:LOCAL_BASE_URL}"
+      },
+      "models": {
+        "local-model": {
+          "name": "Local model",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        }
+      }
+    },
+    "cloud-openai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Cloud provider",
+      "options": {
+        "baseURL": "{env:CLOUD_BASE_URL}",
+        "apiKey": "{env:CLOUD_API_KEY}"
+      },
+      "models": {
+        "cloud-model-large": {
+          "name": "Cloud model large"
+        },
+        "cloud-model-small": {
+          "name": "Cloud model small"
+        }
+      }
+    }
+  },
+  "mcp": {
+    "servers": {
+      "chrome": {
+        "type": "local",
+        "command": ["node", "path/to/chrome-mcp/index.js"],
+        "disabled": true,
+        "codemode": true
+      },
+      "screen": {
+        "type": "local",
+        "command": ["python", "-m", "screen-mcp", "serve"],
+        "disabled": true
+      }
+    }
+  }
+}
