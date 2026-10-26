@@ -19,7 +19,7 @@ Portable OpenCode 2.x configuration kit: core config, agents, commands, 16 skill
 - OpenCode 2.x.
 - Windows PowerShell 5.1+ (or PowerShell 7+) or bash 4+ on Linux and macOS.
 - Python 3.9+ for the verification script.
-- Git, only for publishing.
+- Git, for cloning the repository.
 - Node.js, optional; used for `node --check` when present.
 
 ## Quick start
@@ -29,7 +29,7 @@ Both installers copy files into `$env:OPENCODE_CONFIG_DIR` when it is set, other
 **PowerShell** (Windows):
 
 ```powershell
-git clone <your-repository-url> opencode-primer
+git clone https://github.com/wellrccity/opencode-primer.git
 cd opencode-primer
 powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1 -DryRun
 powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1
@@ -38,7 +38,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\install.ps1
 **bash** (Linux, macOS, WSL):
 
 ```bash
-git clone <your-repository-url> opencode-primer
+git clone https://github.com/wellrccity/opencode-primer.git
 cd opencode-primer
 bash scripts/install.sh --dry-run
 bash scripts/install.sh
@@ -141,15 +141,6 @@ python scripts/verify.py
 ```
 
 The script is standard-library only, makes no network calls, and checks paths, JSON, skill frontmatter, command and agent frontmatter, ASCII text, secrets, and absolute user paths. It exits 0 only when every check passes. CI runs the same command on Ubuntu and Windows.
-
-## Publishing to GitHub
-
-1. `git init` in this directory, then `git add .` and `git commit -m "Initial commit"`.
-2. Create an empty repository with `gh repo create` or the web UI; do not add a README there.
-3. `git remote add origin <your-repository-url>` and `git branch -M main`.
-4. `git push -u origin main`.
-5. Confirm the `verify` workflow runs on the push and is green on both runners.
-6. Keep credentials out of git; provide them as environment variables.
 
 ## License
 

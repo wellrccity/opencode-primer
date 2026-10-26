@@ -99,7 +99,6 @@ README_HEADINGS = (
     "Commands",
     "Configuration",
     "Verification",
-    "Publishing to GitHub",
     "License",
 )
 
