@@ -25,6 +25,7 @@ SKILL_IDS = (
     "create-skill",
     "execution-focus",
     "git-safe",
+    "image-generation",
     "mandatory-verification",
     "meta-goal",
     "professional-workflow",
@@ -32,6 +33,7 @@ SKILL_IDS = (
     "systematic-debugging",
     "tdd-plan",
     "understand-code",
+    "ux-frontend-design",
     "web-research",
 )
 
@@ -55,6 +57,7 @@ REQUIRED_FILES = (
     "agents/team-worker-free.md",
     "agents/team-reviewer.md",
     "agents/team-worker-paid.md",
+    "commands/maestro.md",
     "commands/team-build.md",
     "commands/verify.md",
     "commands/review.md",
@@ -331,7 +334,7 @@ def check_skill_set(chk):
     names = sorted(path.name for path in skill_dirs())
     expected = sorted(SKILL_IDS)
     if names == expected:
-        chk.check("skill directories match the 16 IDs", True)
+        chk.check("skill directories match SKILL_IDS", True)
         return
     missing = sorted(set(expected) - set(names))
     extra = sorted(set(names) - set(expected))
@@ -340,7 +343,7 @@ def check_skill_set(chk):
         parts.append("missing: " + ", ".join(missing))
     if extra:
         parts.append("unexpected: " + ", ".join(extra))
-    chk.check("skill directories match the 16 IDs", False, "; ".join(parts))
+    chk.check("skill directories match SKILL_IDS", False, "; ".join(parts))
 
 
 def check_skill_contents(chk):
@@ -352,13 +355,16 @@ def check_skill_contents(chk):
             for path in directory.rglob("*")
             if path.is_file()
         )
-        if entries != ["SKILL.md"]:
+        allowed = ["SKILL.md"] + [
+            entry for entry in entries if entry.startswith("references/")
+        ]
+        if entries != sorted(allowed):
             bad.append("%s: [%s]" % (directory.name, ", ".join(entries)))
     ok = bool(dirs) and not bad
     detail = (
         summarize(bad) if bad else ("" if dirs else "skills/ has no skill directories")
     )
-    chk.check("each skill directory contains only SKILL.md", ok, detail)
+    chk.check("each skill has SKILL.md and only references/ extras", ok, detail)
 
 
 def check_skill_frontmatter(chk):

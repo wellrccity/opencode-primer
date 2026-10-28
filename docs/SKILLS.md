@@ -1,6 +1,6 @@
 # Skills
 
-16 skills, one directory each: `skills/<id>/SKILL.md`. The description in the frontmatter is what triggers a skill, so the "Use when" column is the short form of it.
+18 skills, one directory each: `skills/<id>/SKILL.md`. The description in the frontmatter is what triggers a skill, so the "Use when" column is the short form of it.
 
 | ID | Purpose | Use when |
 | --- | --- | --- |
@@ -12,6 +12,7 @@
 | `create-skill` | Turn a recurring workflow into a small, reusable skill. | The same procedure has been repeated a few times. |
 | `execution-focus` | Return to short, concrete steps. | Scope is large, attention drifts, or the task stalls. |
 | `git-safe` | Inspect the diff and protect existing work before git actions. | Before commit, branch, rebase, or push. |
+| `image-generation` | Generate website assets, brand visuals, icons, and hero banners with configurable image models, background removal, and vision curation. | Generating web assets, brand visuals, icons, or banners. |
 | `mandatory-verification` | Run the most relevant check and report real output as Changed / Verified / Missing / Next step. | After any edit. |
 | `meta-goal` | Bound a long task by a measurable done condition and a turn budget, judged each turn. | A task needs a hard stop condition. See `/meta`. |
 | `professional-workflow` | Understand, plan micro-steps, smallest diff, verify by running. | Any non-trivial code task. |
@@ -19,6 +20,7 @@
 | `systematic-debugging` | Reproduce, isolate the cause, fix, and add a regression test. | An error or unexpected behavior appears. |
 | `tdd-plan` | Small red-green-refactor tasks with a check per step. | A change can be expressed as verifiable increments. |
 | `understand-code` | Build a lean map of an unfamiliar codebase without reading everything. | Entering a new repository or module. |
+| `ux-frontend-design` | Product-quality frontend system: UX flows, UI and art direction, responsive layout, accessibility, CRO, engineering, performance, SEO, security, and visual QA. | Designing, building, reviewing, or auditing any web interface. |
 | `web-research` | Search briefly, confirm against the primary source, summarize. | Current docs, changelogs, or external facts are needed. |
 
 ## Workflow chain
@@ -48,6 +50,6 @@ description: Use when ...
 
 - `name` equals the directory and matches `^[a-z0-9]+(-[a-z0-9]+)*$`.
 - `description` starts with "Use when" and is 20-400 characters.
-- The directory contains only `SKILL.md`.
+- The directory contains `SKILL.md` plus an optional `references/` subdirectory for long-form material.
 
 `python scripts/verify.py` enforces all three.

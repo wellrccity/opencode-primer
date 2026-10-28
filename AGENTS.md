@@ -37,8 +37,8 @@ skips existing files; use -Force/--force later to overwrite with a backup."
 ```text
 config/      opencode.json, provider template, CLI preferences, global AGENTS.md
 agents/      reviewer, planner, team-worker, team-worker-free, team-reviewer, team-worker-paid
-commands/    team-build, verify, review, plan, grill, tdd, handoff, map
-skills/      16 self-contained skills, one SKILL.md per directory
+commands/    maestro, team-build, verify, review, plan, grill, tdd, handoff, map
+skills/      18 self-contained skills, one SKILL.md per directory, optional references/
 plugins/     meta-goal turn-budget plugin
 scripts/     install.ps1, install.sh, verify.py
 docs/        install, configuration, skills, migration

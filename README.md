@@ -1,6 +1,6 @@
 # opencode-primer
 
-Portable OpenCode 2.x configuration kit: core config, agents, commands, 16 skills, and the meta-goal plugin. Installs on Windows, Linux, and macOS.
+Portable OpenCode 2.x configuration kit: core config, agents, commands, 18 skills, and the meta-goal plugin. Installs on Windows, Linux, and macOS.
 
 ## What's inside
 
@@ -8,8 +8,8 @@ Portable OpenCode 2.x configuration kit: core config, agents, commands, 16 skill
 | --- | --- |
 | `config/` | Core `opencode.json`, an optional provider template, CLI preferences, and the global `AGENTS.md`. |
 | `agents/` | Six agent definitions: `reviewer`, `planner`, and four `team-*` agents. |
-| `commands/` | Eight command templates, including `team-build`, `verify`, `review`, `plan`, `grill`, `tdd`, `handoff`, `map`. |
-| `skills/` | 16 skills, one directory each, each with a single `SKILL.md`. |
+| `commands/` | Nine command templates, including `maestro`, `team-build`, `verify`, `review`, `plan`, `grill`, `tdd`, `handoff`, `map`. |
+| `skills/` | 18 skills, one directory each, each with a `SKILL.md`; long-form material lives in an optional `references/` subdirectory. |
 | `plugins/meta-goal/` | Turn-budget plugin with an automatic judge. |
 | `scripts/` | `install.ps1`, `install.sh`, and `verify.py`. |
 | `docs/` | Install, configuration, skills, and migration notes. |
@@ -70,6 +70,7 @@ agents/team-worker-free.md  agents/team-reviewer.md  agents/team-worker-paid.md
 commands/team-build.md  commands/verify.md  commands/review.md  commands/plan.md
 commands/grill.md  commands/tdd.md  commands/handoff.md  commands/map.md
 skills/<id>/SKILL.md
+skills/<id>/references/*.md
 plugins/meta-goal/index.js  plugins/meta-goal/package.json
 scripts/install.ps1  scripts/install.sh  scripts/verify.py
 docs/INSTALL.md  docs/CONFIGURATION.md  docs/SKILLS.md  docs/MIGRATION.md
@@ -87,6 +88,7 @@ docs/INSTALL.md  docs/CONFIGURATION.md  docs/SKILLS.md  docs/MIGRATION.md
 | `create-skill` | Turn a recurring workflow into a small skill. |
 | `execution-focus` | Regain traction when scope is large or a task stalls. |
 | `git-safe` | Inspect and protect work before commit, branch, or push. |
+| `image-generation` | Generate website assets, brand visuals, icons, and hero banners with configurable image models, background removal, and vision curation. |
 | `mandatory-verification` | Run real verification after an edit and report output. |
 | `meta-goal` | Bound a long task by a measurable done condition and a turn budget. |
 | `professional-workflow` | Understand, plan micro-steps, smallest diff, verify. |
@@ -94,6 +96,7 @@ docs/INSTALL.md  docs/CONFIGURATION.md  docs/SKILLS.md  docs/MIGRATION.md
 | `systematic-debugging` | Reproduce, isolate, fix, and confirm a regression test. |
 | `tdd-plan` | Small red-green-refactor tasks for verifiable changes. |
 | `understand-code` | Map an unfamiliar codebase without burning context. |
+| `ux-frontend-design` | Product-quality frontend system: UX, art direction, responsive, a11y, CRO, engineering, performance, SEO, security, visual QA. |
 | `web-research` | Check current external docs against primary sources. |
 
 Full table with triggers: [docs/SKILLS.md](docs/SKILLS.md).
@@ -115,6 +118,7 @@ Free-tier and paid model IDs pinned in `agents/*.md` depend on the account; if a
 
 | Command | Purpose |
 | --- | --- |
+| `/maestro` | Token-efficient staged orchestrator with sequential worker sessions and model selection. |
 | `/team-build` | Orchestrate workers across a multi-part build. |
 | `/verify` | Run the relevant checks and report the result. |
 | `/review` | Review a diff or the working tree with the `reviewer` agent. |

@@ -12,7 +12,7 @@
 | Area | Owner paths |
 | --- | --- |
 | Config, agents, commands | `config/`, `agents/`, `commands/` |
-| Skills | `skills/<id>/SKILL.md` |
+| Skills | `skills/<id>/SKILL.md` and optional `skills/<id>/references/` |
 | Plugin | `plugins/meta-goal/` |
 | Installers, hygiene | `scripts/`, `.gitignore`, `.editorconfig`, `.gitattributes` |
 | Docs, CI | `README.md`, `LICENSE`, `CONTRIBUTING.md`, `SECURITY.md`, `docs/`, `.github/` |
@@ -21,7 +21,7 @@ Change only the paths for the task you are doing, and leave unrelated files alon
 
 ## Authoring a skill
 
-1. Create `skills/<id>/SKILL.md`; the directory contains that file and nothing else.
+1. Create `skills/<id>/SKILL.md`; if the skill needs long-form material, put it in `skills/<id>/references/` and keep the entry file focused.
 2. Frontmatter:
 
 ```markdown
